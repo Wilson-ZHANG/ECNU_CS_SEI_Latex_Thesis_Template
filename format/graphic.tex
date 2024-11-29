@@ -1,0 +1,26 @@
+\setcounter{tocdepth}{2}
+\tableofcontents
+\cleardoublepage
+% \renewcommand{\listfigurename}{\heiti \xiaosan 图目录}
+% \renewcommand{\listtablename}{\heiti \xiaosan 表目录} 
+\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
+%设置图目录编号样式，主要是间距
+\addcontentsline{toc}{chapter}{图目录}
+\listoffigures
+%自动生成图目录
+\cleardoublepage
+
+% 表格目录
+\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{表目录}
+\listoftables
+
+\cleardoublepage
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+\CTEXsetup[format+={\zihao{3}\heiti}]{chapter}
+\CTEXsetup[format+={\raggedright\zihao{4}\heiti}]{section}
+\CTEXsetup[format+={\zihao{-4}\heiti}]{subsection}

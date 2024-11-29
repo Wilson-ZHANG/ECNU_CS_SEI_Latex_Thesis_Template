@@ -1,0 +1,28 @@
+\chapter{工作二}
+
+\section{算法介绍}
+
+
+
+
+
+
+\subsection{一个好的调度算法}
+\begin{algorithm}[htb!]
+\caption{xxx调度算法}
+\label{alg:schem}
+\begin{algorithmic}[1]
+\STATE \textbf{初始化：}$Q$-网络参数：$\theta$，目标$Q$-网络参数：$\theta^{-}$，最佳状态-动作-r缓冲区$\mathcal{B}$，折扣因子$\gamma$，最大周期$K$；
+\FOR{${\hbox{Episode}} = 1, \cdots, K$}
+\STATE 从数据集中采样一个请求$\text{Seqs}$并将$s_0$发送给调度器；
+    \FOR{$t=0,\cdots,T$且$d_t \neq False$}
+        \STATE 使用基于(\ref{eq: sampling})的XXX获得XXX$a_t$；
+        \STATE XXXX$r_t, s_{t+1}, d_{t+1}$；
+        \STATE 将XXX$s_t, a_t, r_t, s_{t+1},  d_{t+1}$并按照(\ref{eq:episodic})更新XXX$\mathcal{B}$；
+        \STATE XXX(\ref{eq:loss})更新$Q$-网络；
+        \STATE 根据(\ref{eq:tar})软更新目标$Q$-网络。
+    \ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+

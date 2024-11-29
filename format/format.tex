@@ -1,0 +1,275 @@
+\usepackage[CJKbookmarks,
+colorlinks,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+urlcolor=black
+]{hyperref}
+\usepackage{shortvrb,ulem,makeidx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{indentfirst,latexsym,colortbl,subfigure,clrscode}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{bm}                     % 处理数学公式中的黑斜体的宏包
+\usepackage{amsmath}                % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}                % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{mathrsfs}
+\usepackage[subnum]{cases}
+% \usepackage[numbers]{natbib} %sort&compress
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{times}
+\usepackage{fontspec}
+\usepackage{makecell,rotating,multirow,diagbox}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{titletoc}
+\usepackage{amsthm}
+\usepackage{fourier} 
+\usepackage{mathtools}
+
+\urlstyle{same} %使用\url{}以开启链接的自动换行，该命令保证超链接文本字体样式与正文一致
+
+\newcommand\cplus{\mathbin{\raisebox{-\height}{$+$}}}
+\newcommand\contdots{\raisebox{-\height}{$\vphantom{+}\dotsm$}}
+\newtheorem{hypothesis}{假设}[chapter]
+\newif\ifnotanonymous\notanonymoustrue		%定义是否开启盲审，默认不开启
+\newif\iftmlc
+
+\def\cFracB#1#2{%
+	\vcenter{\hbox{\strut$#1$\,\vrule}\hrule\hbox{\strut\vrule\,$#2$}}}
+\makeindex
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[RO,LE]{\thepage}
+\fancyfoot[CO,CE]{}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\loflabel}{图}
+\newcommand{\lotlabel}{表}
+\captionsetup[table]{labelsep=quad}
+\captionsetup[figure]{labelsep=quad}
+
+
+%                    根据自己正文需要做的一些定义                 %
+%==================================================================%
+\def\diag{{\rm diag}}
+\def\rank{{\rm rank}}
+\def\RR{{\cal R}}
+\def\NN{{\cal N}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\let\dis=\displaystyle
+
+\def\p{\partial}
+\def\f{\frac}
+\def\mr{\mathrm}
+\def\mb{\mathbf}
+\def\mc{\mathcal}
+\def\b{\begin}
+\def\e{\end}
+
+\newtheorem{thm1}{Theorem}[part]
+\newtheorem{thm2}{Theorem}[section]
+\newtheorem{thm3}{Theorem}[subsection]
+\newtheorem{them}[thm2]{定理}
+\newtheorem{theorem}[thm2]{定理}
+\newtheorem{defn}[thm2]{定义}
+\newtheorem{define}[thm2]{定义}
+\newtheorem{ex}[thm2]{例}
+\newtheorem{exs}[thm2]{例}
+\newtheorem{example}[thm2]{例}
+\newtheorem{prop}[thm2]{命题}
+\newtheorem{lemma}[thm2]{引理}
+\newtheorem{cor}[thm2]{推论}
+\newtheorem{remark}[thm2]{注释}
+\newtheorem{notation}[thm2]{记号}
+\newtheorem{abbre}[thm2]{缩写}
+% \newtheorem{algorithm}[thm2]{算法}
+\newtheorem{problem}[thm2]{问题}
+\newtheorem{Definition}{定义}[chapter]
+
+
+\newcommand{\cyihao}{\fontsize{26pt}{30pt}\selectfont}			% 一号, 1.5 倍行距
+\newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}			% 一号, 1.4 倍行距
+\newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}			% 二号, 1.25倍行距
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}          % 小二, 单倍行距
+\newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}			% 三号, 1.5倍行距
+\newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}			% 小三, 1.5倍行距
+\newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}			% 四号, 1.5 倍行距
+\newcommand{\banxiaosi}{\fontsize{13pt}{19.5pt}\selectfont}		% 半小四, 1.5倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}			% 小四, 1.5倍行距
+\newcommand{\dawuhao}{\fontsize{11pt}{11pt}\selectfont}			% 大五号, 单倍行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{15.75pt}\selectfont}		% 五号, 单倍行距
+
+%============================ 可以自定义文字块 ================================%
+
+\newcommand{\aaa}{Example}
+\newcommand{\bbb}{\aaa \aaa \aaa}
+\newcommand{\ccc}{\bbb \bbb \bbb \bbb \bbb
+	
+	\bbb \bbb \bbb \bbb \bbb }
+\newcommand{\abc}{abcdefg1234567890}
+\newcommand{\upabc}{ABCDEFGHIJK}
+%%% ----------------------------------------------------------------------
+
+\CTEXsetup[beforeskip = 0pt]{chapter}
+\CTEXsetup[afterskip = 20pt]{chapter}
+
+
+%============================= 版芯控制 ================================%
+\setlength{\oddsidemargin}{0.57cm} 
+\setlength{\evensidemargin}{\oddsidemargin}
+\voffset-6mm \textwidth=150mm \textheight=230mm \headwidth=150mm
+%\rightmargin=35mm
+%                                                                       %
+
+
+%============================= 页面设置 ================================%
+%-------------------- 定义页眉和页脚 使用fancyhdr 宏包 -----------------%
+% 定义页眉与正文间双隔线
+%my addition
+\fancyhead{}
+\fancyhead[RO,LE]{\bfseries 华东师范大学{\degreeCN}学位论文}
+\fancyhead[LO,RE]{\small\leftmark}
+%end myaddition
+
+\newcommand{\makeheadrule}{%
+	\makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{0.4pt}}%
+	\rule[0.85\baselineskip]{\headwidth}{0.4pt} \vskip-.8\baselineskip}
+\makeatletter
+\renewcommand{\headrule}{%
+	{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+		\makeheadrule}} \makeatother
+
+\newcommand{\adots}{\mathinner{\mkern 2mu%
+		\raisebox{0.1em}{.}\mkern 2mu\raisebox{0.4em}{.}%
+		\mkernmu\raisebox{0.7em}{.}\mkern 1mu}}
+\renewcommand{\contentsname}{\heiti \sanhao {目\quad 录}}
+\renewcommand{\listfigurename}{\heiti \sanhao {图目录}}
+\renewcommand{\listtablename}{\heiti \sanhao {表目录}}
+\setmainfont{Times New Roman}
+\dottedcontents{chapter}[1.5cm]{\sihao\heiti}{3.8em}{9.5pt}
+\dottedcontents{section}[1.5cm]{\xiaosi\heiti}{2.8em}{9.5pt}
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+
+
+
+
+%============================= Bibitem control ================================% 
+\def \auto {auto}
+\ifx \refstyle \auto
+
+\else
+
+\usepackage{etoolbox} % Required, for availablility changing the latex env.
+% \usepackage{hyperref} % Show a green-border box on each \cite label?
+
+% Pre-define list variables
+\makeatletter
+\newcommand*{\lodbib@citeorder}{} % Catch normal entries
+\newcommand*{\lodbib@notcited}{} % Catch entries that were not cited
+
+% Macro in aux file
+\def\citation{%
+  \forcsvlist{\citation@i}}
+
+\def\citation@i#1{%
+  \ifinlist{#1}{\lodbib@citeorder}
+    {}
+    {\listxadd{\lodbib@citeorder}{#1}}}
+
+\let\ltxorig@lbibitem\@lbibitem
+\let\ltxorig@bibitem\@bibitem
+
+% Save bibitems into lists
+\def\@lbibitem[#1]#2#3{%
+  \csdef{lodbib@savedlabel@#2}{#1}%
+  \@bibitem{#2}{#3}}
+
+\def\@bibitem#1#2{%
+  \xifinlist{#1}{\lodbib@citeorder}
+    {}
+    {\listadd{\lodbib@notcited}{#1}}%
+  \csdef{lodbib@savedentry@#1}{#2}}
+
+% Re-define \thebibiography command.
+\renewenvironment{thebibliography}[1]
+     {\settowidth\labelwidth{\@biblabel{#1}}}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \chapter*{参考文献} % chapter title
+       \@mkboth{参考文献}{参考文献} % left page header / right page header
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\leftmargin\labelwidth\parsep=0pt
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m
+      \lodbib@biblistloop
+      \endlist}
+      
+% Output the bib list.
+\def\lodbib@biblistloop{%
+  \forlistloop{\lodbib@bibitem}{\lodbib@citeorder}%
+  \ifdefvoid{\lodbib@notcited}
+    {}
+    {\forlistloop{
+    \lodbib@bibitem 
+    }{
+    %\lodbib@notcited % Whether listing uncited bib at the end of the references?
+    }}}
+    
+% Modify the \cite num. in the book.
+\def\lodbib@bibitem#1{%
+  \ifcsundef{lodbib@savedlabel@#1}
+    {\ltxorig@bibitem{#1}}
+    {\ltxorig@lbibitem[\csuse{lodbib@savedlabel@#1}]{#1}}%
+  \csuse{lodbib@savedentry@#1}}
+  
+
+\fi
+ 
+
+%============== Convert all headers (incl. bib sec.) and footers into fancy style, with double underlines and book titles adding to the headers, pages num. adding to the footers.========%
+\makeatletter
+\let\ps@plain\ps@fancy
+
+\usepackage{enumitem}
+\setenumerate{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setitemize{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=10pt,leftmargin=25pt,labelsep=10pt}
+% \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+
+
+%======================= TOC Settings =======================%
+\titlecontents{chapter}[4.5em]{\sihao\heiti}%最前面到标题的缩进
+              {\contentslabel{4em}}%序号和标题文字之间的缩进
+              {\hspace{-4em}}%无序号标题往前缩进
+              {\ \titlerule*[0.4pc]{$\cdot$}\contentspage}{} %引导线为"...1"
+\titlecontents{section}[4.5em]{\heiti \xiaosi}%最前面到标题的缩进
+              {\contentslabel{2.5em}}%序号和标题文字之间的缩进
+              {}%
+              {\ \titlerule*[0.4pc]{$\cdot$}\contentspage}{} %引导线为"...1"
+\titlecontents{subsection}[7.5em]{}%最前面到标题的缩进
+              {\contentslabel{2.9em}}%序号和标题文字之间的缩进
+              {}%
+              {\ \titlerule*[0.4pc]{$\cdot$}\contentspage}{} %引导线为"...1"
+\titlecontents{figure}[0em]{}%最前面到标题的缩进
+              {\figurename~\thecontentslabel \quad}%序号和标题文字之间的缩进
+              {}%
+              {\ \titlerule*[0.4pc]{$\cdot$}\contentspage}{} %引导线为"...1"
+\titlecontents{table}[0em]{}%最前面到标题的缩进
+              {表~\thecontentslabel \quad}%序号和标题文字之间的缩进
+              {}%
+              {\ \titlerule*[0.4pc]{$\cdot$}\contentspage}{} %引导线为"...1"
+
+% Activate all \makeatletter script
+\makeatother
