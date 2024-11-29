@@ -1,0 +1,178 @@
+% 华东师范大学博士（硕士）论文主格式，请修改前三行以保证格式符合要求。
+
+%==============格式配置开始==============%
+\def \degree {phd} % phd, master
+\def \year {2025}
+\def \draftfigure {off} % on,off
+\def \docstyle {normal} % normal,tmlc,anonymous
+\def \refstyle {auto} % auto,manual
+
+% student id
+\def \stuID {52xxxxxx}
+% title
+\def\thesisTitle{论文标题}
+\def\thesisTitleNoWrap{论文标题}
+\def\thesisETitle{
+    Title
+}
+%==============格式配置结束==============%
+
+\def \dc {on}
+\ifx \draftfigure \dc
+\documentclass[12pt,a4paper,fancyhdr,openany,twoside,draft]{ctexbook}
+\else
+\documentclass[12pt,a4paper,fancyhdr,openany,twoside]{ctexbook}
+\fi
+
+\def \phd {phd}
+\ifx \degree \phd
+    \def\degreeCN{博士}
+    \def\degreeENs{Doctoral}
+\else
+    \def\degreeCN{硕士}
+    \def\degreeENs{Master's}
+\fi
+
+\input{./format/format.tex}
+
+\def \dd {anonymous}
+\def \de {tmlc}
+\ifx \docstyle \dd
+    \notanonymousfalse % 开启该行则为盲审版本，注释该行则为非盲审版本（即查重或终稿版本）
+\else
+    \ifx \docstyle \de
+        \tmlctrue % 开启该行则为查重版本，注释该行则为终稿版本（仅在上一行在注释状态下有效）
+    \fi
+\fi
+
+% 以下是正文部分
+
+\usepackage{emptypage}
+\usepackage{tikz}
+\usepackage{bbm}
+%	\usepackage{algorithm}
+\usepackage{multirow}
+\usepackage{bbm}
+% \usepackage{algpseudocode}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{array} % Necessary for new column definitions
+\usepackage{listings}
+% Define \tabincell
+\newcommand\tabincell[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+%\usepackage{algorithm,algpseudocode}
+\usepackage{lipsum}
+%\usepackage{algorithmic}
+%\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\newtheorem{Proposition}{Theorem}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{xspace}
+\newcommand{\greencheck}{{\checkmark}}
+\newcommand{\xmark}{\ding{55}}%
+% \newcommand{\redx}{{\color{red}\xmark}}
+\newcommand{\redx}{{\xmark}}
+% \usepackage{algorithmic}
+
+\usepackage{xeCJK} % 声明包
+%\renewcommand{\algorithmcfname}{算法}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+\begin{document}
+\input{preface/inner-cover.tex}
+\cleardoublepage
+\input{preface/inner-cover-en.tex}
+\cleardoublepage
+
+\ifnotanonymous %非盲审，也就是查重版，不显示原创性+名单；终版全要
+    \iftmlc
+    \else
+        \input{preface/copyright.tex} 
+        \cleardoublepage
+        %\input{preface/member-list.tex}
+       % \cleardoublepage
+    \fi
+\else %盲审仅显示原创性，不要名单
+    \input{preface/copyright.tex} %查重不显示
+    \cleardoublepage %查重不显示
+\fi
+
+\setlength{\baselineskip}{25pt}  %正文设为25磅行间距
+\newpage
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\input{abstract/abstract.tex}
+\cleardoublepage
+\input{abstract/abstract-en.tex}
+\cleardoublepage
+
+\input{format/graphic.tex}
+
+
+\input{chapters/Introduction.tex}
+\cleardoublepage
+\input{chapters/RelatedWork.tex}
+\cleardoublepage
+\input{chapters/chapter-3.tex}
+\cleardoublepage
+\input{chapters/chapter-4.tex}
+\cleardoublepage
+\input{chapters/chapter-5.tex}
+\cleardoublepage
+\input{chapters/chapter-6.tex}
+\cleardoublepage
+\input{chapters/Discussion.tex}
+\cleardoublepage
+
+% 两种文献导入方式。如果开启bst自动模式，在format.cls中bibcontrol部分无效
+\ifx \refstyle \auto
+    % bst自动
+    \addcontentsline{toc}{chapter}{参考文献}
+    \bibliographystyle{references/gbt7714-2005}
+    \bibliography{references/paper.bib}
+    
+\else
+    % bib手动
+    \begin{thebibliography}{999}  
+    \addcontentsline{toc}{chapter}{参考文献}
+    \input{references/paper-manual.bib}
+    \end{thebibliography}
+\fi
+
+\cleardoublepage
+
+%\appendix
+%\input{chapters/appendix.tex}
+%\cleardoublepage
+
+\ifnotanonymous %非盲审，查重：不要致谢，终稿要
+    \iftmlc
+    \else
+        \input{acknowledgement/acknowledgement.tex}  %查重不显示
+        \addcontentsline{toc}{chapter}{致谢} %查重不显示
+        \cleardoublepage %查重不显示
+    \fi
+\else %盲审，需要短的致谢
+    \input{acknowledgement/acknowledgement-tmlc.tex}  
+    \addcontentsline{toc}{chapter}{致谢}
+    \cleardoublepage
+\fi
+
+\input{achievements/achievements.tex}
+\addcontentsline{toc}{chapter}{发表论文和科研情况}
+
+\cleardoublepage
+\printindex
+\end{document}
