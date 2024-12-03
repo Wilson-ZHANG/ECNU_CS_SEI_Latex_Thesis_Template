@@ -160,18 +160,19 @@
 \ifnotanonymous %非盲审，查重：不要致谢，终稿要
     \iftmlc
     \else
-        \input{acknowledgement/acknowledgement.tex}  %查重不显示
         \addcontentsline{toc}{chapter}{致谢} %查重不显示
+        \input{acknowledgement/acknowledgement.tex}  %查重不显示
         \cleardoublepage %查重不显示
     \fi
 \else %盲审，需要短的致谢
-    \input{acknowledgement/acknowledgement-tmlc.tex}  
     \addcontentsline{toc}{chapter}{致谢}
+    \input{acknowledgement/acknowledgement-tmlc.tex}
     \cleardoublepage
 \fi
 
-\input{achievements/achievements.tex}
 \addcontentsline{toc}{chapter}{发表论文和科研情况}
+\input{achievements/achievements.tex}
+
 
 \cleardoublepage
 \printindex
